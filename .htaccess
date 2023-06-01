@@ -1,0 +1,13 @@
+RewriteEngine On
+# http://127.0.0.1/o22b
+RewriteBase /o22b
+
+# http://127.0.0.1/o22b/css/theme.css
+# $1 => /css/theme.css
+# [L] => Last
+RewriteCond %{DOCUMENT_ROOT}/o22b/Static/$1 -f
+RewriteRule (.*) Static/$1 [L]
+
+# [QSA] => Query String Append
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule (.*) Application/index.php [L,QSA]
