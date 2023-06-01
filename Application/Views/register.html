@@ -1,0 +1,43 @@
+
+<?php include "fragments/header.html"; ?>
+		<main>
+			<div class="container col-md-4 bg-dark p-3 mt-5">
+				<?php 
+    if(count($_GET) > 0) {
+		foreach($_SESSION["errors"] as $key => $error){
+     echo '<div data-bs-dismiss="3000" class="alert alert-danger alert-dismissible fade show" role="alert">
+     <strong>Error!</strong> '.$error.'
+   </div>';
+}
+    }
+	?>
+
+			<form action="/o22b/user/register" method="POST">
+                <div class="form-group">
+                  <label for="formGroupExampleInput" class="text-light">First Name</label>
+                  <input type="text" name="firstName" class="form-control" id="formGroupExampleInput" placeholder="Entrer un prénom" value="{{get.firstName}}">
+                </div>
+				<div class="form-group">
+					<label for="formGroupExampleInput" class="text-light">Last Name</label>
+					<input type="text" name="lastName" class="form-control" id="formGroupExampleInput" placeholder="Entrer un nom" value="{{get.lastName}}">
+				</div>
+				<div class="form-group">
+					<label for="formGroupExampleInput" class="text-light">Email</label>
+					<input type="email" name="login" class="form-control" id="formGroupExampleInput" placeholder="Entrer un email" value="{{get.login}}">
+				</div>
+                <div class="form-group">
+                  <label for="formGroupExampleInput2" class="text-light">Mot de passe</label>
+                  <input type="password" name="password" class="form-control" id="formGroupExampleInput2" placeholder="Entrer un mot de passe">
+                </div>
+                
+                <div class="form-group">
+                    
+                      <button type="submit" class="btn btn-primary form-control">Valider</button>
+                   
+                  </div>
+              </form>
+			</div>
+		</main>
+
+	</body>
+</html>

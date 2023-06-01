@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+
+
+		
+		<?php include "fragments/header.html"; ?>
+
+		<main>
+<div class="container col-md-4 bg-dark p-3 mt-5">
+		
+
+
+            <form action="/o22b/Article/update" method="POST">
+                <div class="form-group">
+                    <label for="formGroupExampleInput" class="text-light">Numero</label>
+                    <input type="text" name="id" class="form-control" id="formGroupExampleInput" placeholder="Numéro de votre annonce" value="{{get.id}}" readonly>
+                  </div>
+                <div class="form-group">
+                  <label for="formGroupExampleInput1" class="text-light">Titre</label>
+                  <input type="text" name="title" class="form-control" id="formGroupExampleInput1" placeholder="Entrer un titre" value="{{get.title}}">
+                </div>
+                <div class="form-group">
+                  <label for="exampleFormControlTextarea1" class="text-light">Description</label>
+                  <textarea class="form-control" name="description" id="exampleFormControlTextarea1" rows="3">{{get.description}}</textarea>
+                </div>
+                
+                <div class="form-group">
+                    
+                      <button type="submit" class="btn btn-primary form-control">Mettre à jour</button>
+                   
+                  </div>
+              </form>
+            </div>
+   
+  
+
+		</main>
+
+	</body>
+</html>

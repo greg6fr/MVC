@@ -1,0 +1,45 @@
+
+		
+		<?php include "fragments/header.html"; ?>
+
+		<main>
+			<div class="container col-md-4 bg-dark p-3 mt-5">
+				<?php 
+				if(count($_GET) > 0) {
+					foreach($_SESSION["errors"] as $key => $error){
+				 echo '<div data-bs-dismiss="3000" class="alert alert-danger alert-dismissible fade show" role="alert">
+				 <strong>Error!</strong> '.$error.'</div>';
+			}
+				}
+				if(isset($_GET["success"])&&(strlen($_GET["success"]) > 0)) {
+					
+				 echo '<div data-bs-dismiss="3000" class="alert alert-success alert-dismissible fade show" role="alert">
+				 <strong>Success!!</strong> '.$_GET["success"].'
+			   </div>';
+			
+				}
+				?>
+
+			<form action="/o22b/user/auth" method="POST">
+                <div class="form-group">
+                  <label for="formGroupExampleInput" class="text-light">Login</label>
+                  <input type="text" name="login" class="form-control" id="formGroupExampleInput" placeholder="Entrer votre login" value="{{get.login}}">
+                </div>
+                <div class="form-group">
+                  <label for="formGroupExampleInput2" class="text-light">Mot de passe</label>
+                  <input type="password" name="password" class="form-control" id="formGroupExampleInput2" placeholder="Entrer un mot de passe">
+                </div>
+                
+                <div class="form-group">
+                    
+                      <button type="submit" class="btn btn-primary form-control">Se connecter</button>
+                   
+                  </div>
+              </form>
+            </div>
+
+		</div>
+		</main>
+
+	</body>
+</html>

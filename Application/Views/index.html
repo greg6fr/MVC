@@ -1,0 +1,52 @@
+
+
+		<?php include "fragments/header.html"; ?>
+		<main>
+
+		
+			<div class="container col-md-8 bg-dark p-3 mt-5">
+				<?php 
+
+				if(isset($_SESSION['message']) && !empty($_SESSION['message']) && count($_SESSION['message'])>0) {
+					echo '<div data-bs-dismiss="3000" class="alert alert-success alert-dismissible fade show" role="alert">
+					<strong>Succès!</strong> ';
+					foreach($_SESSION["message"] as $key => $value){echo $value;}
+					echo'
+				  </div>';
+				   }
+				
+				?>
+				<?php if(isset($_SESSION['nothing']) && !empty($_SESSION['nothing']) && count($_SESSION['nothing'])>0) {
+					echo '<div data-bs-dismiss="3000" class="alert alert-warning alert-dismissible fade show" role="alert">
+					<strong>Warning!</strong> ';
+					foreach($_SESSION["nothing"] as $key => $value){echo $value;}
+					echo'
+				  </div>';
+				   }
+				
+				?>
+				<?php 		if(isset($_GET) && count($_GET)>0) {
+							foreach($_GET as $key => $value){
+							echo '<div class="card mb-3">
+								<h5 class="card-header">Article n° '.$value["id"].'</h5>
+								<div class="card-body">
+								  <h5 class="card-title">'.$value["title"].'</h5>
+								  <p class="card-text">'.$value["description"].'</p>'.
+								  '<a href="/o22b/updating/?id='.$value["id"].'&'.'title='.$value["title"].'&'.'description='.$value["description"].'" class="btn btn-primary">Modifier</a>'.'
+								  <a href="/o22b/article/erase/?id='.$value["id"].'&'.'title='.$value["title"].'&'.'description='.$value["description"].'" class="btn btn-danger">Supprimer</a>
+								  
+								</div>
+							  </div>';
+							}
+						}
+				?>
+				
+					
+				
+				
+		</div>
+		
+		</main>
+
+	</body>
+</html>
